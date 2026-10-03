@@ -1,0 +1,141 @@
+.header {
+  width: 100%;
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+}
+.announcementBar {
+  width: 100%;
+  padding: 4px 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1410;
+}
+.announcementBar span {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  color: #ffd980;
+}
+.announcementBar .announcementAccent {
+  color: #c8860a;
+}
+.announcementSecondary {
+  display: none;
+}
+.star {
+  display: inline;
+}
+.navRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  background-color: #ffffff;
+}
+.logo {
+  display: inline-flex;
+}
+.logoMobile {
+  width: 64.11px;
+  height: 32.1px;
+}
+.logoDesktop {
+  width: 123.11px;
+  height: 61.64px;
+  display: none;
+}
+.nav {
+  display: none;
+}
+.navList {
+  gap: 72px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navLink {
+  text-transform: uppercase;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  color: #faf0e8;
+}
+.iconGroup {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  color: #1a1410;
+}
+.iconButton {
+  width: 23px;
+  height: 23px;
+}
+.iconButton svg {
+  width: 23px;
+  height: 23px;
+  aspect-ratio: 1;
+}
+.menuButton {
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+.menuButton svg {
+  width: 24px;
+  height: 24px;
+}
+.iconButton,
+.menuButton {
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+  .announcementBar {
+    justify-content: space-between;
+    padding: 4px 80px;
+  }
+  .announcementSecondary {
+    display: inline;
+  }
+  .star {
+    display: none;
+  }
+  .announcementBar span {
+    text-transform: uppercase;
+    font-size: 17px;
+  }
+  .navRow {
+    background-color: #1a1410;
+    padding: 16px 24px;
+    justify-content: space-between;
+  }
+  .logoMobile {
+    display: none;
+  }
+  .logoDesktop {
+    display: block;
+  }
+  .navLink {
+    color: #faf0e8;
+  }
+  .iconGroup {
+    color: #faf0e8;
+    gap: 56px;
+  }
+  .iconButton svg {
+    width: 48px;
+    height: 48px;
+  }
+  .menuButton {
+    display: none;
+  }
+}
