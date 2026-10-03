@@ -62,8 +62,8 @@
 
 @media (min-width: 768px) {
   .section {
-    margin: 0 64px 72px;
-    padding: 56px;
+    margin: 0 0 72px;
+    padding: 64px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
