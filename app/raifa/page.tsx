@@ -1,3 +1,4 @@
+import Footer from "@/components/raifa/Footer";
 import Header from "@/components/raifa/Header";
 import Hero from "@/components/raifa/Hero";
 import ProductGrid from "@/components/raifa/Productgrid";
@@ -10,7 +11,7 @@ export default function RaifaPage() {
       <Hero />
       <ProductGrid />
       <WhySection />
-      {/* Hero, ProductGrid, WhySection, Footer land here next */}
+      <Footer />
     </main>
   );
 }

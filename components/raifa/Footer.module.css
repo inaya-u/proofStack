@@ -1,0 +1,85 @@
+.footer {
+  padding: 40px 24px 32px;
+  border-top: 1px solid #edd9c8;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 12px;
+}
+
+.tagline {
+  display: none; /* mobile reference doesn't show this — desktop-only addition */
+}
+
+.colHeading {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a8078;
+  margin-bottom: 10px;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 14px;
+  color: #8a8078;
+}
+
+.address {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 14px;
+  color: #8a8078;
+}
+
+.bottomBar {
+  padding-top: 20px;
+  border-top: 1px solid #edd9c8;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 12px;
+  color: #8a8078;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 64px 64px 32px;
+  }
+
+  .columns {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .brandCol {
+    max-width: 280px;
+  }
+
+  .tagline {
+    display: block;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #8a8078;
+  }
+
+  .col {
+    min-width: 140px;
+  }
+}
