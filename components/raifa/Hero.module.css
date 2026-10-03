@@ -1,0 +1,272 @@
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 640px;
+}
+
+/* ===== BACKGROUNDS ===== */
+
+.bgMobile {
+  position: absolute;
+  inset: 0;
+  background-color: #1a1410;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(200, 134, 10, 0.12) 0px,
+    rgba(200, 134, 10, 0.12) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  /* this is the "masked group" — fades the whole stripe+dark bg to transparent
+     at the bottom, letting the page's cream bg show through naturally */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+}
+
+.bgDesktop {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/raifa/hero-desktop.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== OVERLAYS ===== */
+
+.overlayMobile {
+  display: none; /* bgMobile's own mask handles the fade, no separate overlay needed */
+}
+
+.overlayDesktop {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 20, 16, 0.88) 0%,
+    rgba(26, 20, 16, 0.55) 45%,
+    rgba(26, 20, 16, 0.25) 100%
+  );
+}
+
+/* ===== CONTENT ===== */
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 48px 24px 64px;
+  max-width: 480px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #c8860a;
+}
+
+.eyebrowLine {
+  width: 24px;
+  height: 1px;
+  background-color: #c8860a;
+}
+
+.eyebrowSecondary {
+  display: none;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.headingLine {
+  font-family:
+    Georgia, "Times New Roman", serif; /* swap for your actual display font */
+  font-style: italic;
+  font-size: 48px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.headingAccent {
+  color: #c8860a;
+}
+
+.subtext {
+  margin-bottom: 32px;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #d8cfc5;
+}
+
+.subtextDesktop {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.shopNow {
+  padding: 12px 32px;
+  background-color: #c8860a;
+  color: #1a1410;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.viewCollections {
+  display: none;
+}
+
+.inStoreBadge {
+  display: none;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #c8860a;
+}
+
+.stats {
+  display: none;
+}
+
+/* ===== DESKTOP ===== */
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .bgMobile {
+    display: none;
+  }
+
+  .bgDesktop {
+    display: block;
+  }
+
+  .overlayDesktop {
+    display: block;
+  }
+
+  .content {
+    max-width: 640px;
+    padding: 80px 64px;
+    text-align: start;
+  }
+
+  .eyebrow {
+    gap: 16px;
+  }
+
+  .eyebrowLine {
+    display: none;
+  }
+
+  .eyebrowSecondary {
+    display: inline;
+    color: #d8cfc5;
+    text-transform: none;
+  }
+
+  .heading {
+    margin-bottom: 20px;
+  }
+
+  .headingLine {
+    font-size: 72px;
+  }
+
+  .subtext {
+    font-size: 16px;
+    color: #c8bdb0;
+  }
+
+  .subtextMobile {
+    display: none;
+  }
+
+  .subtextDesktop {
+    display: block;
+  }
+
+  .actions {
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+
+  .shopNow {
+    padding: 16px 40px;
+  }
+
+  .viewCollections {
+    display: block;
+    padding: 16px 40px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .inStoreBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(200, 134, 10, 0.5);
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 13px;
+    color: #c8860a;
+  }
+
+  .stats {
+    display: flex;
+    gap: 40px;
+  }
+
+  .statValue {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #c8860a;
+    margin-bottom: 2px;
+  }
+
+  .statLabel {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 12px;
+    color: #c8bdb0;
+    letter-spacing: 0.5px;
+  }
+}

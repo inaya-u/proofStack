@@ -79,7 +79,7 @@
 .iconButton svg {
   width: 23px;
   height: 23px;
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
 }
 .menuButton {
   display: flex;
@@ -115,7 +115,7 @@
   }
   .navRow {
     background-color: #1a1410;
-    padding: 16px 24px;
+    padding: 16px 28px;
     justify-content: space-between;
   }
   .logoMobile {
@@ -131,6 +131,7 @@
     color: #faf0e8;
     gap: 56px;
   }
+  .iconButton,
   .iconButton svg {
     width: 48px;
     height: 48px;
