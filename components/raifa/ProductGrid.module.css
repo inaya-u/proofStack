@@ -1,0 +1,46 @@
+.section {
+  background-color: #fdf5ef;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 24px 16px;
+}
+
+.headingText {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #c8860a;
+}
+
+.count {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 13px;
+  color: #8a8078;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 24px 56px;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    padding: 0 64px 20px;
+  }
+
+  .headingText {
+    font-size: 26px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0 64px 72px;
+  }
+}
