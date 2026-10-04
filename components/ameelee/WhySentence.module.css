@@ -1,0 +1,66 @@
+/* desktop only for now */
+.why {
+  display: none;
+  padding: 12vh 4vw 14vh;
+  background: var(--bg);
+  color: var(--ink);
+  transition:
+    background 0.6s ease,
+    color 0.6s ease;
+}
+
+@media (min-width: 1024px) {
+  .why {
+    display: block;
+  }
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(44px, 5.4vw, 92px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(15px, 1.5vw, 24px);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+.sentence {
+  max-width: 18em;
+  margin: 8vh 0 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(36px, 5vw, 84px);
+  font-weight: 300;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+
+.em {
+  font-weight: 900;
+  color: var(--em);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+  cursor: default;
+  transition:
+    color 0.4s,
+    text-decoration-color 0.4s;
+}
+
+/* while one phrase is hovered, the page tints to its colour */
+.dim {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.on {
+  color: #ffffff;
+  text-decoration-color: #ffffff;
+}

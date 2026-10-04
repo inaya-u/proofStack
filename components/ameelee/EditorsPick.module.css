@@ -1,0 +1,176 @@
+/* desktop only for now: the mobile card comes later */
+.pick {
+  display: none;
+  position: relative;
+  height: clamp(540px, 88vh, 860px);
+  overflow: hidden;
+  background-color: #0a0a0a;
+  /* the light cone falling from the ceiling */
+  background-image: conic-gradient(
+    from 180deg at 50% -8%,
+    transparent 152deg,
+    rgba(255, 255, 255, 0.13) 172deg,
+    rgba(255, 255, 255, 0.13) 188deg,
+    transparent 208deg
+  );
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .pick {
+    display: block;
+  }
+}
+
+.title {
+  position: absolute;
+  top: 7vh;
+  left: 4vw;
+  z-index: 3;
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(44px, 5.4vw, 92px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(15px, 1.5vw, 24px);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+.big {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  translate: -50% -50%;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 27vw;
+  font-weight: 900;
+  line-height: 0.8;
+  white-space: nowrap;
+  color: #161616;
+  user-select: none;
+}
+
+.rail {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(#bbbbbb, #555555);
+}
+
+/* garment + tag swing from the rail */
+.hang {
+  position: absolute;
+  top: 37px;
+  left: 50%;
+  height: 72%;
+  translate: -50% 0;
+  transform-origin: 50% 0;
+  animation: sway 6s ease-in-out infinite alternate;
+}
+
+.garment {
+  display: block;
+  height: 100%;
+  width: auto;
+  overflow: visible;
+}
+
+.tag {
+  position: absolute;
+  top: 26%;
+  left: 96%;
+  transform-origin: 0 0;
+  animation: sway 3.6s ease-in-out infinite alternate-reverse;
+}
+
+.tag::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 46px;
+  margin-left: 14px;
+  background: #aaaaaa;
+}
+
+.tag span {
+  display: block;
+  padding: 12px 16px;
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.copy {
+  position: absolute;
+  bottom: 8vh;
+  left: 4vw;
+  z-index: 3;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  opacity: 0.65;
+}
+
+.line {
+  margin: 8px 0 28px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 300;
+  color: #bbbbbb;
+}
+
+.cta {
+  display: inline-flex;
+  gap: 14px;
+  padding: 20px 34px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: #ffffff;
+  color: #000000;
+  outline: none;
+}
+
+@keyframes sway {
+  from {
+    rotate: -2.2deg;
+  }
+  to {
+    rotate: 2.2deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hang,
+  .tag {
+    animation: none;
+  }
+}

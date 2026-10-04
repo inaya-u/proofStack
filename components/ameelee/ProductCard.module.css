@@ -1,0 +1,130 @@
+.card {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 4px;
+  width: clamp(200px, 17vw, 260px);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 6px;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.img {
+  object-fit: cover;
+  transition: scale 0.5s ease;
+}
+
+.card:hover .img {
+  scale: 1.05;
+}
+
+/* hanger placeholder, centred in the photo slot */
+.garment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 88%;
+  width: auto;
+  translate: -50% -50%;
+  transform-origin: 50% 0;
+}
+
+.card:hover .garment {
+  animation: sway 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+  from {
+    rotate: -2.5deg;
+  }
+  to {
+    rotate: 2.5deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .garment {
+    animation: none;
+  }
+}
+
+.new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px 14px;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.cat {
+  margin: 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(22px, 1.9vw, 28px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.desc {
+  margin: 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.price {
+  margin: 8px 0 6px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sizes li {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.8;
+}

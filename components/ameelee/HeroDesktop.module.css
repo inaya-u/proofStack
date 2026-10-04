@@ -1,0 +1,254 @@
+/* desktop only: below 1024px the mobile hero takes over */
+.stage {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  height: calc(100svh - 40px);
+  min-height: 640px;
+  color: #ffffff;
+  background: radial-gradient(
+    110% 90% at 68% 50%,
+    color-mix(in srgb, var(--c2) 55%, var(--bg)),
+    var(--bg) 72%
+  );
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    display: block;
+  }
+}
+
+/* ---------- eclipse ---------- */
+
+.dial {
+  position: absolute;
+  left: 68%;
+  top: 55%;
+  width: min(78vh, 54vw);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+
+.disc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 52%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  translate: -50% -50%;
+}
+
+.corona {
+  width: 70%;
+  background: conic-gradient(
+    var(--c1),
+    var(--c2),
+    #ffffff,
+    var(--c2),
+    var(--c1)
+  );
+  filter: blur(34px);
+  opacity: 0.85;
+  animation: spin 24s linear infinite;
+}
+
+.sun {
+  background: radial-gradient(circle, #ffffff 0, var(--c1) 42%, var(--c2) 100%);
+  box-shadow: 0 0 150px 40px color-mix(in srgb, var(--c1) 55%, transparent);
+}
+
+.moon {
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  box-shadow:
+    inset 0 0 60px color-mix(in srgb, var(--c1) 40%, transparent),
+    0 0 50px 8px var(--bg);
+  transform: translate(-18%, 0);
+  transition: transform 0.22s ease-out;
+}
+
+.moon span {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: min(16vh, 10.8vw);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--c1);
+  text-shadow: 0 0 40px var(--c1);
+}
+
+/* ---------- svg layers ---------- */
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ring {
+  pointer-events: none;
+  animation: spin 60s linear infinite;
+}
+
+.ring text {
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  fill: color-mix(in srgb, var(--c1) 70%, #ffffff);
+}
+
+.tick {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  transition: stroke 0.3s;
+}
+
+.tickOn {
+  stroke: var(--c1);
+  stroke-width: 4;
+}
+
+.num {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  fill: rgba(255, 255, 255, 0.4);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  cursor: pointer;
+  transition:
+    font-size 0.25s,
+    fill 0.25s;
+}
+
+.numOn {
+  font-size: 58px;
+  fill: #ffffff;
+}
+
+.num:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 6px;
+}
+
+.needle {
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  pointer-events: none;
+}
+
+/* ---------- copy ---------- */
+
+.copy {
+  position: absolute;
+  left: 4vw;
+  bottom: 9vh;
+  z-index: 3;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(54px, 8vw, 138px);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 2.4vh 0 1.6vh;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: 300;
+  line-height: 1.02;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sub b {
+  font-weight: 900;
+  color: var(--c1);
+}
+
+.tag {
+  margin: 0 0 3.4vh;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cta {
+  display: inline-block;
+  padding: 20px 34px;
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transition: background 0.3s;
+}
+
+.cta:hover {
+  background: var(--c1);
+}
+
+.cta:focus-visible {
+  outline: 3px solid var(--c1);
+  outline-offset: 3px;
+}
+
+/* ---------- insanity levels ---------- */
+
+.stage[data-level="1"] .ring,
+.stage[data-level="1"] .corona {
+  animation: none;
+}
+
+.stage[data-level="1"] .corona {
+  opacity: 0.5;
+}
+
+.stage[data-level="3"] .corona {
+  animation:
+    spin 7s linear infinite,
+    pulse 2s ease-in-out infinite;
+}
+
+.stage[data-level="3"] .ring {
+  animation-duration: 18s;
+}
+
+.stage[data-level="3"] .title {
+  text-shadow:
+    var(--sx, 0px) var(--sy, 0px) 0 var(--c1),
+    calc(var(--sx, 0px) * -1) calc(var(--sy, 0px) * -1) 0 var(--c2);
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    scale: 1.14;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .corona,
+  .stage[data-level="3"] .corona,
+  .stage[data-level="3"] .ring {
+    animation: none;
+  }
+}

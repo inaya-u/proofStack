@@ -1,0 +1,49 @@
+/* mobile + tablet only: desktop uses the crossed strips */
+.strip {
+  display: flex;
+  align-items: center;
+  height: 41px;
+  margin: 24px 0;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+@media (min-width: 1024px) {
+  .strip {
+    display: none;
+  }
+}
+
+.sizes {
+  color: #9a9a9a;
+}
+.insta {
+  color: #e6e6e6;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  animation: run 30s linear infinite;
+}
+
+.track span {
+  padding: 0 24px;
+}
+
+@keyframes run {
+  to {
+    translate: -50% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

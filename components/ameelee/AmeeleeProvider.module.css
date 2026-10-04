@@ -1,0 +1,76 @@
+/* registered so the colours animate smoothly between sizes */
+@property --c1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8a7bff;
+}
+@property --c2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1b1470;
+}
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0a0830;
+}
+
+.root {
+  min-height: 100vh;
+  background: var(--bg);
+  transition:
+    --c1 0.8s ease,
+    --c2 0.8s ease,
+    --bg 0.8s ease;
+}
+
+/* ---------- eclipse page transition ---------- */
+
+.eclipse {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--c1);
+}
+
+/* the black moon trails the colour edge */
+.eclipse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+}
+
+@keyframes grow {
+  from {
+    clip-path: circle(0 at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(150vmax at var(--x) var(--y));
+  }
+}
+
+@keyframes shrink {
+  from {
+    clip-path: circle(150vmax at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(0 at var(--x) var(--y));
+  }
+}
+
+/* cover: colour leads, moon follows 120ms behind */
+.cover {
+  animation: grow 0.7s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+.cover::after {
+  animation: grow 0.7s cubic-bezier(0.7, 0, 0.2, 1) 0.12s both;
+}
+
+/* reveal: moon collapses first, colour follows */
+.reveal {
+  animation: shrink 0.7s cubic-bezier(0.7, 0, 0.2, 1) 0.12s both;
+}
+.reveal::after {
+  animation: shrink 0.7s cubic-bezier(0.7, 0, 0.2, 1) both;
+}

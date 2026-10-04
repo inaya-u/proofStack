@@ -14,6 +14,11 @@ const PROJECTS: ProjectEntry[] = [
     name: "Raifa Store",
     description: "Modesty. Luxury. You. — Dubai & Egyptian abaya storefront.",
   },
+  {
+    slug: "ameelee",
+    name: "AMEELEE",
+    description: "Modesty. Luxury. You. — Dubai & Egyptian abaya storefront.",
+  },
 ];
 
 export default function Home() {
@@ -21,8 +26,8 @@ export default function Home() {
     <main className={styles.main}>
       <h1 className={styles.title}>proofStack</h1>
       <p className={styles.intro}>
-        Figma-to-code proof of work — pitch designs for local businesses,
-        built out as real, functioning frontends.
+        Figma-to-code proof of work — pitch designs for local businesses, built
+        out as real, functioning frontends.
       </p>
 
       <ul className={styles.projectList}>

@@ -1,0 +1,80 @@
+/* desktop only for now */
+.crossed {
+  display: none;
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .crossed {
+    display: block;
+  }
+}
+
+.strip {
+  position: absolute;
+  top: 50%;
+  left: -6%;
+  display: flex;
+  align-items: center;
+  width: 112%;
+  height: 74px;
+  overflow: hidden;
+  translate: 0 -50%;
+}
+
+/* black strip sits on top */
+.black {
+  z-index: 2;
+  rotate: -2.4deg;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* cream tape measure with ticks along the bottom edge */
+.tape {
+  rotate: 2.4deg;
+  background-color: #efe3c8;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #0a0a0a 0 1px,
+    transparent 1px 18px
+  );
+  background-size: 100% 12px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  color: #0a0a0a;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  animation: run 34s linear infinite;
+}
+
+.track span {
+  padding: 0 26px;
+}
+
+.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes run {
+  to {
+    translate: -50% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

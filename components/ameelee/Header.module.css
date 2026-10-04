@@ -1,0 +1,275 @@
+.header {
+  position: relative;
+  z-index: 30;
+  background: #ffffff;
+}
+
+/* ---------- announcement bar ---------- */
+
+.announcementBar {
+  overflow: hidden;
+  background: #0a0a0a;
+  color: #ffffff;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.dot {
+  padding: 0 26px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+/* ---------- nav bar (mobile first) ---------- */
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+.logo {
+  display: block;
+  line-height: 0;
+}
+
+.logoImg {
+  display: block;
+}
+
+.links {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.iconButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.iconButton:focus-visible,
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ---------- mobile drawer ---------- */
+
+.drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 8px 16px 24px;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+.drawerOpen {
+  display: block;
+}
+
+.drawerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawerList li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.drawerList a {
+  display: block;
+  padding: 16px 0;
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- desktop: transparent nav floating over the hero ---------- */
+
+@media (min-width: 1024px) {
+  .header {
+    background: transparent;
+  }
+
+  .navBar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 22px 4vw;
+    background: transparent;
+    color: #ffffff;
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
+  /* logo is dark artwork; flip it for the dark hero */
+  .logoImg {
+    width: 56px;
+    height: auto;
+    filter: invert(1);
+  }
+
+  .links {
+    display: block;
+  }
+
+  .linkList {
+    display: flex;
+    gap: 44px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .link {
+    position: relative;
+    display: block;
+    padding: 8px 0;
+    color: inherit;
+    text-decoration: none;
+    font-family: var(--font-jost), "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  /* a little moon dot grows under the hovered link */
+  .link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c1);
+    translate: -50% 0;
+    scale: 0;
+    transition: scale 0.3s;
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    color: var(--c1);
+  }
+
+  .link:hover::after,
+  .link:focus-visible::after {
+    scale: 1;
+  }
+
+  .actions {
+    justify-self: end;
+    gap: 26px;
+  }
+
+  .iconButton:hover {
+    color: var(--c1);
+  }
+
+  .cartBadge {
+    background: var(--c1);
+    color: #0a0a0a;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .drawer,
+  .drawerOpen {
+    display: none;
+  }
+}

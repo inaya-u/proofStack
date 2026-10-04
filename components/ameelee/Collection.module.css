@@ -1,0 +1,203 @@
+/* desktop only for now: the mobile list version comes later */
+.collection {
+  display: none;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+@media (min-width: 1024px) {
+  .collection {
+    display: block;
+  }
+}
+
+/* ---------- tabs ---------- */
+
+.tabs {
+  display: flex;
+  gap: 44px;
+  padding: 0 4vw;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tab {
+  margin-bottom: -1px;
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: #777777;
+  cursor: pointer;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.25s;
+}
+
+.tab:hover {
+  color: #0a0a0a;
+}
+
+.tab:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 4px;
+}
+
+.tabOn {
+  border-bottom-color: #0a0a0a;
+  color: #0a0a0a;
+}
+
+/* ---------- heading ---------- */
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 6vh 4vw 4vh;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(56px, 7vw, 120px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(16px, 1.6vw, 26px);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: #555555;
+}
+
+.count {
+  margin: 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 18px;
+  color: #555555;
+}
+
+/* ---------- colour doors ---------- */
+
+.doors {
+  display: flex;
+  height: clamp(560px, 80vh, 820px);
+}
+
+.door {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  transition: flex 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.open {
+  flex: 7;
+}
+
+.empty {
+  flex: 0.45;
+  opacity: 0.3;
+}
+
+.label {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.label:disabled {
+  cursor: default;
+}
+
+.label:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: -8px;
+}
+
+.open .label {
+  pointer-events: none;
+}
+
+.labelText {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  translate: -50% 0;
+  rotate: 180deg;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  transition: opacity 0.3s;
+}
+
+.open .labelText {
+  opacity: 0;
+}
+
+.labelCount {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0;
+  opacity: 0.6;
+}
+
+/* ---------- gallery inside an open door ---------- */
+
+.panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 36px 3vw;
+  overflow-x: auto;
+  visibility: hidden;
+  opacity: 0;
+  scrollbar-width: thin;
+  scrollbar-color: currentColor transparent;
+  transition:
+    opacity 0.3s,
+    visibility 0s 0.3s;
+}
+
+.open .panel {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 0.4s 0.4s,
+    visibility 0s 0.4s;
+}
+
+.gallery {
+  display: flex;
+  gap: 2.4vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door,
+  .panel,
+  .labelText {
+    transition: none;
+  }
+}

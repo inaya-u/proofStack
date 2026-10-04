@@ -1,0 +1,64 @@
+/* mobile + tablet only: desktop has the one-sentence version */
+.wrap {
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 36px 25px 40px;
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    display: none;
+  }
+}
+
+.title {
+  margin: 0 0 26px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: #555555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  min-height: 148px;
+  padding: 14px 12px;
+  background: #f0f0f0;
+}
+
+.tileTitle {
+  margin: 14px 0 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.tileText {
+  margin: 6px 0 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #666666;
+}

@@ -1,0 +1,129 @@
+/* mobile + tablet only: desktop has the spotlight stage */
+.wrap {
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 24px 24px 36px;
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    display: none;
+  }
+}
+
+.title {
+  margin: 0 0 22px;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: #555555;
+}
+
+.card {
+  position: relative;
+  height: 201px;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+.photo {
+  position: absolute;
+  top: 8px;
+  right: 24px;
+  bottom: 16px;
+  width: 123px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.garment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 90%;
+  width: auto;
+  translate: -50% -50%;
+}
+
+.price {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  width: 123px;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.copy {
+  position: absolute;
+  top: 58px;
+  left: 24px;
+  max-width: 150px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: #999999;
+}
+
+.name {
+  margin: 8px 0 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.line {
+  margin: 6px 0 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 11px;
+  color: #aaaaaa;
+}
+
+.cta {
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 32px;
+  padding: 0 20px;
+  border: 1px solid #b5b5b5;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

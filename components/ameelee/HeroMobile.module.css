@@ -1,0 +1,134 @@
+/* mobile + tablet only: HeroDesktop takes over at 1024px */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 24px 40px;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    display: none;
+  }
+}
+
+/* ---------- ghost wordmark ---------- */
+
+.ghost {
+  position: absolute;
+  top: 50%;
+  left: 154px;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 0.7;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #161616;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- size ladder ---------- */
+
+.ladder {
+  position: absolute;
+  top: 40px;
+  right: 34px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.dim {
+  color: #5a5a5a;
+}
+
+/* ---------- copy ---------- */
+
+.season,
+.eyebrow {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #666666;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  letter-spacing: 0.12em;
+  color: #5c5c5c;
+}
+
+.rule {
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.title {
+  position: relative;
+  margin: 26px 0 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(48px, 13.3vw, 96px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  position: relative;
+  margin: 4px 0 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: clamp(35px, 9.7vw, 70px);
+  font-weight: 300;
+  line-height: 0.86;
+  color: #b3b3b3;
+}
+
+.tag {
+  position: relative;
+  margin: 16px 0 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #a0a0a0;
+}
+
+.cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 40px;
+  margin-top: 36px;
+  padding: 0 24px;
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.cta:focus-visible {
+  outline: 3px solid var(--c1);
+  outline-offset: 3px;
+}

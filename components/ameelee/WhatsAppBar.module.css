@@ -1,0 +1,129 @@
+/* ---------- mobile: full-width bar pinned to the bottom ---------- */
+
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  padding: 12px 12px 12px 22px;
+  background: #0a0a0a;
+  border-top: 1px solid #333333;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.head {
+  margin: 0;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.sub {
+  margin: 2px 0 0;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #666666;
+}
+
+.btn {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 178px;
+  height: 66px;
+  background: #ffffff;
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.label {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.spacer {
+  height: 90px;
+  background: #0a0a0a;
+}
+
+/* ---------- desktop: a floating pill in the current colour ---------- */
+
+@media (min-width: 1024px) {
+  .bar {
+    left: auto;
+    right: 28px;
+    bottom: 28px;
+    height: auto;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  .copy {
+    display: none;
+  }
+
+  .btn {
+    width: auto;
+    height: auto;
+    gap: 12px;
+    padding: 16px 28px 16px 22px;
+    border-radius: 999px;
+    background: var(--c1);
+    color: #0a0a0a;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    transition: translate 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn:hover {
+    translate: 0 -3px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  .label {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .br {
+    display: none;
+  }
+
+  .spacer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
